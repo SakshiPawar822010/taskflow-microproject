@@ -53,19 +53,7 @@ mongoose
 // Test / Health Route
 // ==========================================
 app.get('/', (req, res) => {
-  res.json({
-    success: true,
-    message: 'Welcome to TaskFlow Backend API! Server is running smoothly.',
-    endpoints: [
-      'POST /api/register',
-      'POST /api/login',
-      'POST /api/tasks',
-      'GET /api/tasks?userId=...',
-      'GET /api/tasks/user/:userId',
-      'PUT /api/tasks/:id',
-      'DELETE /api/tasks/:id'
-    ]
-  });
+  res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 
 // Serve frontend homepage
