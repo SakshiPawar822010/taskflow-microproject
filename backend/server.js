@@ -3,7 +3,8 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
+const cors = require('cors'); 
+const path = require('path');                                                                                                       
 require('dotenv').config();
 
 // Import Mongoose Models
@@ -33,6 +34,8 @@ app.use(cors());
 
 // Parse JSON request bodies
 app.use(express.json());
+app.use('/css', express.static(path.join(__dirname, '..', 'css')));
+app.use('/js', express.static(path.join(__dirname, '..', 'js')));
 
 // ==========================================
 // MongoDB Connection
@@ -63,6 +66,11 @@ app.get('/', (req, res) => {
       'DELETE /api/tasks/:id'
     ]
   });
+});
+
+// Serve frontend homepage
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 
 // ==========================================

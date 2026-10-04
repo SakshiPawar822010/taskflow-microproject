@@ -1,11 +1,12 @@
 /**
  * TaskFlow – Authentication & Registration Controller
  * Connects frontend Login & Registration with Express & MongoDB backend
- * API Base URL: http://localhost:5000
+ * API Base URL: 
+ * 
  */
 
 if (typeof API_BASE_URL === 'undefined') {
-  var API_BASE_URL = 'http://localhost:5000';
+  var API_BASE_URL = '';
 }
 
 class AuthModule {
